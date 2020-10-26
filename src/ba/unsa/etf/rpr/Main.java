@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -14,12 +15,16 @@ public class Main{
         return suma;
     }
     public static void main(String[] args){
-        Scanner ulaz = new Scanner(System.in);
-        System.out.println("Unesite n: ");
-        int n = ulaz.nextInt();
-        for(int i=1;i<=n;i++){
-            if(i%sumaCifara(i)==0)
-                System.out.println(i);
+        try {
+            Scanner ulaz = new Scanner(System.in);
+            System.out.println("Unesite n: ");
+            int n = ulaz.nextInt();
+            for (int i = 1; i <= n; i++) {
+                if (i % sumaCifara(i) == 0)
+                    System.out.println(i);
+            }
+        }catch (InputMismatchException e){
+            System.out.println("Niste unijeli broj!");
         }
     }
 }
